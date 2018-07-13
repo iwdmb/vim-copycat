@@ -6,8 +6,8 @@ vim-copycat provides much simpler way to share clipboard between terminal and sy
 Requirement
 ===
 
-1. [copycat-clipboard](https://github.com/littleq0903/copycat)
-2. Python 2.7
+1. [copycat-clipboard3](https://github.com/iwdmb/copycat)
+2. Python 3 or above version
 
 
 Command
@@ -24,12 +24,12 @@ Command
 Installation
 ===
 
-1. `sudo apt-get install python-pip`
-1. `sudo pip install copycat-clipboard`
+1. `sudo apt-get install python3-pip`
+1. `sudo pip3 install copycat-clipboard3`
 2. `cd ~/.vim/bundles`
-3. `git clone git@github.com:georgefs/vim-copycat.git`
+3. `git@github.com:iwdmb/vim-copycat.git`
 
-then you're all set, from now you're able to use system clipboard as in Vim.
+Then you're all set, from now you're able to use system clipboard as in Vim.
 
 
 Available Settings
