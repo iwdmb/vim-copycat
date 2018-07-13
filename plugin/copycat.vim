@@ -2,7 +2,7 @@
 "
 "  default settings for vim-copycat
 " reg vim reg which is share with copycat '' as default as @"
-" clip copycat reg name which is share with vim '' as default as system clip 
+" clip copycat reg name which is share with vim '' as default as system clip
 " ----------------------------------
 let s:settings = {
     \ 'reg': '',
@@ -20,7 +20,7 @@ let s:settings = {
 
 
 
-python << EOF
+python3 << EOF
 import sys
 import vim
 sys.path.append(vim.eval('expand("<sfile>:p:h:h")'))
@@ -43,7 +43,7 @@ if exists('g:copycat#overwrite_ctrlkeys') && g:copycat#overwrite_ctrlkeys == 1
     nmap <silent> <C-c>d :call <SID>delete()<CR>
 
     vmap <silent> <C-c>C y:call <SID>copy(1, g:copycat#reg)<CR>
-    imap <silent> <C-c>P <ESC>y:call <SID>paste(1, g:copycat#reg)<CR> 
+    imap <silent> <C-c>P <ESC>y:call <SID>paste(1, g:copycat#reg)<CR>
 endif
 
 if exists('g:copycat#auto_sync') && g:copycat#auto_sync == 1
@@ -73,7 +73,7 @@ endif
 function! s:get_clip(run)
     if a:run
         return input("copycat clip name:")
-    elseif exists('g:copycat#clip') 
+    elseif exists('g:copycat#clip')
         return g:copycat#clip
     else
         return ""
@@ -110,7 +110,7 @@ endfunction
 " ----------------------------------
 function! s:push_into_clip(value, reg_name)
 
-python << EOF
+python3 << EOF
 copycat_plugin.copy(value="a:value", name="a:reg_name")
 EOF
 
@@ -124,7 +124,7 @@ endfunction
 " @reg_name vim reg name, where copycat value into
 " ----------------------------------
 function! s:pop_from_clip(name)
-python <<EOF
+python3 <<EOF
 copycat_plugin.paste(name="a:name", result="l:result")
 EOF
 return l:result
@@ -176,7 +176,7 @@ function! s:delete()
 
 let l:reg_name = s:get_clip(1)
 
-python << EOF
+python3 << EOF
 copycat_plugin.delete(name=vim.eval('l:reg_name'))
 EOF
 
@@ -188,9 +188,8 @@ endfunction
 " ----------------------------------
 function! s:list()
 
-python << EOF
+python3 << EOF
 copycat_plugin.list()
 EOF
 
 endfunction
-
