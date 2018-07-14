@@ -8,7 +8,7 @@ __all__ = ['copy', 'paste', 'list', 'delete']
 
 import vim
 import re
-import copycat3
+import copycat3 as copycat
 
 # ----------------------------------------------------
 # simple python with vim contact interface
